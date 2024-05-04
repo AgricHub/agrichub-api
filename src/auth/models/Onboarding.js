@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const Step1Schema = new Schema({
   field1: {
     type: String,
@@ -24,7 +23,7 @@ const Step2Schema = new Schema({
   },
 });
 
-const onboardingSchema = new Schema({
+const OnboardingSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -35,13 +34,11 @@ const onboardingSchema = new Schema({
     required: true,
   },
   details: {
-    type: Schema.Types.Mixed,
-    required: true,
+    step1: Step1Schema,
+    step2: Step2Schema,
   },
 }, { timestamps: true });
 
-const Onboarding = mongoose.model('Onboarding', onboardingSchema);
+const Onboarding = mongoose.model('Onboarding', OnboardingSchema);
 
 module.exports = Onboarding;
-module.exports.Step1Schema = Step1Schema;
-module.exports.Step2Schema = Step2Schema;
