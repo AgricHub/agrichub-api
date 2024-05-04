@@ -1,7 +1,6 @@
-
-const express = require('express');
-const session = require('express-session');
-const passport = require('passport');
+import session from 'express-session';
+import passport from 'passport';
+import express from 'express';
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
